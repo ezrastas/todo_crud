@@ -19,12 +19,13 @@ export default class TodoHeader extends React.PureComponent {
       text: this.state.newTodoText,
       type: this.state.newTodoType,
     };
-    this.setState(
+    (newTodo.text)
+    ?(this.setState(
       {
         newTodoText: undefined,
       },
       () => this.props.onAddTodo(newTodo),
-    );
+    )):"";
   };
 
   handleNewText = value => {
