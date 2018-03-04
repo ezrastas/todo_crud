@@ -16,8 +16,7 @@ export default class TodoListItem extends React.PureComponent {
   }
 
   handlerDeleteTodo = () => {
-    const onDeleteTodo = this.props.onDeleteTodo;
-    const index = this.props.index;
+    const { onDeleteTodo, index } = this.props;
     onDeleteTodo(index);
   };
 
@@ -31,12 +30,10 @@ export default class TodoListItem extends React.PureComponent {
 
   handlerUpdateType = value => {
     this.setState({ newTodoType: value });
-    console.log(this.state.newTodoType);
   };
 
   handlerSaveUpdate = () => {
-    const onUpdateTodo = this.props.onUpdateTodo;
-    const index = this.props.index;
+    const { onUpdateTodo, index } = this.props;
     const todo = {
       text: this.state.newTodoText,
       type: this.state.newTodoType,
@@ -53,7 +50,7 @@ export default class TodoListItem extends React.PureComponent {
   };
 
   renderTodo = () => {
-    const todo = this.props.todo;
+    const { todo } = this.props;
     const handlerDeleteTodo = this.handlerDeleteTodo;
     const handlerUpdateTodo = this.handlerUpdateTodo;
     //const onDeleteTodo = this.props.onDeleteTodo;
@@ -85,7 +82,7 @@ export default class TodoListItem extends React.PureComponent {
   };
 
   render(){
-    const isEditable = this.state.isEditable;
+    const { isEditable } = this.state;
     return isEditable ? this.renderUpdate() : this.renderTodo();
   }
 }

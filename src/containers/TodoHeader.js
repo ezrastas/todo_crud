@@ -19,26 +19,22 @@ export default class TodoHeader extends React.PureComponent {
       text: this.state.newTodoText,
       type: this.state.newTodoType,
     };
-    (newTodo.text)
-    ?(this.setState(
-      {
-        newTodoText: undefined,
-      },
-      () => this.props.onAddTodo(newTodo),
-    )):"";
+    newTodo.text
+      ? this.setState(
+          {
+            newTodoText: undefined,
+          },
+          () => this.props.onAddTodo(newTodo)
+        )
+      : '';
   };
 
-  handleNewText = value => {
-    this.setState({ newTodoText: value });
-  };
+  handleNewText = value => this.setState({ newTodoText: value });
 
-  handleNewType = value => {
-    this.setState({ newTodoType: value });
-  };
+  handleNewType = value => this.setState({ newTodoType: value });
 
   render() {
-    const NewTodoText = this.state.newTodoText;
-    const NewTodoType = this.state.newTodoType;
+    const { NewTodoText, NewTodoType } = this.state;
     return (
       <div>
         <SelectBox

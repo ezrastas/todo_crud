@@ -12,12 +12,12 @@ export default class TodoApp extends React.PureComponent {
   }
 
   onAddTodo = todo => {
-    const todos = this.state.todos;
+    const { todos } = this.state;
     this.setState({ todos: [...todos, todo] });
   };
 
   onDeleteTodo = index => {
-    const todos = this.state.todos;
+    const { todos } = this.state;
     this.setState({
       todos: todos.filter((_, i) => {
         return i !== index ? todos[i] : '';
@@ -34,7 +34,7 @@ export default class TodoApp extends React.PureComponent {
   render() {
     const onDeleteTodo = this.onDeleteTodo;
     const onUpdateTodo = this.onUpdateTodo;
-    const todos = this.state.todos;
+    const { todos } = this.state;
     return (
       <div>
         <TodoHeader onAddTodo={this.onAddTodo} />

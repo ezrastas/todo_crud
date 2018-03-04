@@ -5,8 +5,8 @@ import Radio from '../components/Radio';
 import types from '../constants';
 
 export default class TodoPanel extends React.PureComponent {
-  render(){
-    return(
+  render() {
+    return (
       <div>
         <TextBox
           onChange={this.props.HandleSearchText}
@@ -18,6 +18,6 @@ export default class TodoPanel extends React.PureComponent {
           onChange={this.props.HandleSearchType}
         />
       </div>
-    )
+    );
   }
 }
